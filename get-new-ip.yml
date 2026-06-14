@@ -17,3 +17,7 @@
     - name: "New IP Address details"
       ansible.builtin.debug:
         msg: "{{ new_ip_address }}"
+    - name: "set New IPAM IP"
+      set_stats:
+        data:
+          wip_ip: "{{ (new_ip_address['ip_address']['address] | split('/'))[0] }}"
