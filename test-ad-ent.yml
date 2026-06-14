@@ -1,5 +1,6 @@
 - name: AWX Demo - AD-ent Cred
   hosts: localhost
+  gather_facts: false
   tasks:
     - name: To Test AD-ENT Cred user.
       debug:
