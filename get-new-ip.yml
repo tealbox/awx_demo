@@ -1,0 +1,19 @@
+---
+- name: "Get new IP from NetBox"
+  connection: local
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Get a new available IP inside 192.168.0.0/25
+      netbox.netbox.netbox_ip_address:
+        netbox_url: https://hxvc3540.cloud.netboxapp.com
+        netbox_token: "{{ lookup('env', 'BEARER_TOKEN') }}"
+        data:
+          prefix: 192.168.0.0/25
+        state: new
+      register: new_ip_address
+
+    - name: "New IP Address details"
+      ansible.builtin.debug:
+        msg: "{{ new_ip_address }}"
