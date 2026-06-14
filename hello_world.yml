@@ -1,0 +1,6 @@
+- name: Hello World Sample - AWX
+  hosts: localhost
+  tasks:
+    - name: Hello Message AWX Demo
+      debug:
+        msg: "Welcome to the world of Ansible-AWX"
