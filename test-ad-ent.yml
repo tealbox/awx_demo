@@ -1,6 +1,9 @@
 - name: AWX Demo - AD-ent Cred
   hosts: localhost
   tasks:
-    - name: To Test AD-ENT Cred.
+    - name: To Test AD-ENT Cred user.
       debug:
         msg: " {{ lookup('env', 'adent_user') }}"
+    - name: To Test AD-ENT Cred password.
+      debug:
+        msg: " {{ lookup('env', 'adent_pass') }}"
